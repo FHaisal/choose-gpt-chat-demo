@@ -1,0 +1,4 @@
+.name {
+    font-weight: 500;
+    color: light-dark(var(--mantine-color-dark-3), var(--mantine-color-dark-0));
+}

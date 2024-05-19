@@ -1,95 +1,55 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
 
-export default function Home() {
+import Layout from "@/components/ui/Layout";
+import styles from '@/styles/chat/Chat.module.css';
+import {ActionIcon, Container, Flex, Textarea, Text, Badge, Box} from "@mantine/core";
+import {IoArrowUpCircle} from "react-icons/io5";
+import {MdOutlineEdit} from "react-icons/md";
+import UserMessage from "@/components/ui/Chat/UserMessage";
+import AIMessage from "@/components/ui/Chat/AIMessage";
+
+export default function Page() {
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <Layout
+      footer={(
+        <Container size={768} px={0} w={'100%'}>
+          <Flex className={styles.messageBox}>
+            <Textarea
+              variant={'filled'}
+              placeholder="Message..."
+              autosize
+              minRows={0}
+              maxRows={4}
+              size={'md'}
+              rightSection={(
+                <ActionIcon variant={'transparent'} aria-label={'Send Message'}>
+                  <IoArrowUpCircle size={32} />
+                </ActionIcon>
+              )}
             />
-          </a>
-        </div>
-      </div>
+          </Flex>
+        </Container>
+      )}
+    >
+      <Container size={768} p={0} w={'100%'} style={{ display: 'flex', direction: 'column' }}>
+        <Flex className={styles.chat}>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          <UserMessage
+            message={'Hello World!'}
+            displayName={'Faisal Hoque'}
+            date={'18/05/2024 11:32 PM'}
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          <AIMessage
+            message={'Here is a simple Python code to implement the FizzBuzz algorithm:\n\n```\nfor i in range(1, 101):\n    if i % 3 == 0 and i % 5 == 0:\n        print("FizzBuzz")\n    elif i % 3 == 0:\n        print("Fizz")\n    elif i % 5 == 0:\n        print("Buzz")\n    else:\n        print(i)\n```\n\nThis code will print out the numbers from 1 to 100, replacing multiples of 3 with "Fizz", multiples of 5 with "Buzz", and multiples of both with "FizzBuzz".'}
+            displayName={'Cat GPT'}
+            date={'19/05/2024 12:31 AM'}
+          />
+        </Flex>
+      </Container>
+    </Layout>
   );
 }

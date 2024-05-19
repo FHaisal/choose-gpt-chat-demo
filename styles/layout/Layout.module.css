@@ -1,0 +1,42 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    min-height: 52px;
+    max-height: 52px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.content {
+    flex-direction: column;
+    flex: 1;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 0 12px 12px 12px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+}
+
+.navbarHeader {
+    min-height: 52px;
+    max-height: 52px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex-shrink: 0;
+}

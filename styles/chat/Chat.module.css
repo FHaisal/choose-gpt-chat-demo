@@ -1,0 +1,9 @@
+.chat {
+    flex-direction: column;
+    flex: 1;
+    gap: 16px;
+}
+
+.messageBox {
+    flex-direction: column;
+}
